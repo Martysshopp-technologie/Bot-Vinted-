@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: vinted-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: VINTED_DOMAIN
+        value: www.vinted.fr
+      - key: POLL_INTERVAL
+        value: "60"
